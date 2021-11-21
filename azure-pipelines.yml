@@ -27,3 +27,7 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+    - task: WhiteSource@20
+      inputs:
+        cwd: '$(System.DefaultWorkingDirectory)'
+        projectName: 'test'
