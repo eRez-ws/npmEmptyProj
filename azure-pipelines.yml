@@ -19,7 +19,7 @@ stages:
     displayName: Build
     pool:
       vmImage: ubuntu-18.04
-    container: ubuntu-18.04     
+    container: ubuntu:18.04     
     steps:
     - task: Docker@2
       displayName: Build an image
