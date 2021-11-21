@@ -32,3 +32,8 @@ stages:
       inputs:
         cwd: '$(System.DefaultWorkingDirectory)'
         projectName: 'test'
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo Hello world
+          ls -l /__w/whitesource_agent
