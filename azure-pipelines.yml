@@ -35,5 +35,4 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
-          echo Hello world
-          ls -l /__w/
+          echo Hello world         
