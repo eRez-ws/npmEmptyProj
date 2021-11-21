@@ -19,7 +19,7 @@ stages:
     displayName: Build
     pool:
       vmImage: ubuntu-18.04
-    container: debian:bookworm
+    container: mcr.microsoft.com/dotnet/aspnet:6.0
     steps:
     #- task: Docker@2
     #  displayName: Build an image
