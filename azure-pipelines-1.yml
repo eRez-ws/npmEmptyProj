@@ -7,13 +7,25 @@ trigger:
 - main
 
 pool:
-  name: Default
+  vmImage: windows-latest
 
 steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
+- task: CmdLine@2
+  inputs:
+    script: 'curl -LJ -o $(System.DefaultWorkingDirectory)/OpenJDK8_jre_x64_windows.zip https://downloads.whitesourcesoftware.com/ws-cli/jre/OpenJDK8_jre_x64_windows.zip'
+
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'LocalDirectory'
+    jdkFile: '$(System.DefaultWorkingDirectory)/OpenJDK8_jre_x64_windows.zip'
+    jdkDestinationDirectory: '$(System.DefaultWorkingDirectory)/jre'
+    cleanDestinationDirectory: true
 - task: WhiteSource@20
   inputs:
     cwd: '$(System.DefaultWorkingDirectory)'
