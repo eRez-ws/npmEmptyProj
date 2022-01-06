@@ -21,25 +21,7 @@ stages:
       vmImage: ubuntu-18.04
     container: mcr.microsoft.com/dotnet/aspnet:6.0
     steps:
-    #- task: Docker@2
-    #  displayName: Build an image
-    #  inputs:
-    #    command: build
-    #    dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-    #    tags: |
-    #      $(tag)
-    - task: CmdLine@2
-      inputs:
-        script: |
-          echo Hello world1
-          ls -l /__w
-          ls -l /__w/whitesource_agent
-          echo end
-    - task: WhiteSource@20
+    - task: WhiteSource@21
       inputs:
         cwd: '$(System.DefaultWorkingDirectory)'
         projectName: 'test'
-    - task: CmdLine@2
-      inputs:
-        script: |
-          echo Hello world2
